@@ -160,6 +160,10 @@ void draw() {
         image(restartHovered, startX, startY);
         if(mousePressed){
           gameState = GAME_RUN;
+          soldierY = floor(random(2, 6)) * 80;//reset
+          soldierX = - 80;
+          cabbageX = floor(random(0, 8)) * 80;
+          cabbageY = floor(random(2, 6)) * 80;
           lifeNum = 2;
         }
       }else{
