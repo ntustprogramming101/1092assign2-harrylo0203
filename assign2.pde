@@ -55,6 +55,7 @@ void setup() {
   restartHovered=loadImage("img/restartHovered.png");
   gameOver=loadImage("img/gameover.jpg");
   
+  
   hogX = X*4;
   hogY = X;
 
@@ -126,9 +127,8 @@ void draw() {
       
       //hit soldier
       
-      if(soldierY-hogY<80 && soldierY>hogY-1 ){///is hog and soldier in the same row?
-      println("12");
-      if(hogX+80>soldierX-80 && hogX<soldierX){  //Dose hog hit soldier ?
+      if(soldierY-hogY<80 && soldierY>hogY-1 ){
+      if(hogX+80>soldierX-80 && hogX<soldierX){
       hogX=X*4;
       hogY=X;
       lifeNum --;
@@ -136,17 +136,10 @@ void draw() {
         gameState = GAME_OVER;
         }
        }
-      }///WHAT I VE DONE
-      
-      //hit cabbage
-      if(cabbageY-hogY<80 && cabbageY>hogY-1 ){
-      println("12");
-      if(hogX+80>cabbageX && hogX<cabbageX+80){  
-      image(life , 10+(lifeWidth+20)*2, 10);
-      
-        }
       }
       
+      //hit cabbage
+
       if (
       hogX < cabbageX+X && 
       hogX+X > cabbageX &&
@@ -167,6 +160,7 @@ void draw() {
         image(restartHovered, startX, startY);
         if(mousePressed){
           gameState = GAME_RUN;
+          lifeNum = 2;
         }
       }else{
         image(restartNormal, startX, startY);
